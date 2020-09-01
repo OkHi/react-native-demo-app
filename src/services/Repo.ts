@@ -1,11 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage';
-
-type User = {
-  firstName: string;
-  lastName: string;
-  phone: string;
-  id?: string;
-};
+import {User} from '../types';
 
 export default class Repo {
   static async getUser(): Promise<User | null> {
