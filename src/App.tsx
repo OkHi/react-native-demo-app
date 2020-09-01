@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {LoaderScreen} from './screens/Loader';
-import {CreateAddressScreen} from './screens/CreateAddress';
+import {SignUpScreen} from './screens/SignUp';
 import {HomeScreen} from './screens/Home';
 import {RootStackParamList} from './routes';
 
@@ -18,8 +18,8 @@ export const App = () => {
           options={{header: () => null}}
         />
         <Stack.Screen
-          name="CreateAddressScreen"
-          component={CreateAddressScreen}
+          name="SignUpScreen"
+          component={SignUpScreen}
           options={{header: () => null}}
         />
         <Stack.Screen

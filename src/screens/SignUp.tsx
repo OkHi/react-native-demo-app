@@ -12,10 +12,10 @@ type FormErrorType = 'firstName' | 'lastName' | 'phone';
 type FormErrorTypes = Array<FormErrorType>;
 
 type Props = {
-  navigation: StackNavigationProp<RootStackParamList, 'CreateAddressScreen'>;
+  navigation: StackNavigationProp<RootStackParamList, 'SignUpScreen'>;
 };
 
-export const CreateAddressScreen = (props: Props) => {
+export const SignUpScreen = (props: Props) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
@@ -85,7 +85,7 @@ export const CreateAddressScreen = (props: Props) => {
   return (
     <Container>
       <Form>
-        <Title>Create your OkHi Address</Title>
+        <Title>Save your OkHi address</Title>
         <FormGroup>
           <Input
             placeholder="First name*"
@@ -114,11 +114,7 @@ export const CreateAddressScreen = (props: Props) => {
           />
           {renderHint('phone')}
         </FormGroup>
-        <Button
-          title="CREATE ADDRESS"
-          color="#0097A7"
-          onPress={handleOnPress}
-        />
+        <Button title="Get Started" color="#0097A7" onPress={handleOnPress} />
       </Form>
     </Container>
   );

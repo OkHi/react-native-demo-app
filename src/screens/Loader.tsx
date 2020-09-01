@@ -25,12 +25,12 @@ export const LoaderScreen = (props: Props) => {
       Repo.getUser()
         .then((user) => {
           if (!user) {
-            resetNavigation('CreateAddressScreen', props.navigation);
+            resetNavigation('SignUpScreen', props.navigation);
           } else {
             resetNavigation('HomeScreen', props.navigation, user);
           }
         })
-        .catch(() => resetNavigation('CreateAddressScreen', props.navigation));
+        .catch(() => resetNavigation('SignUpScreen', props.navigation));
       clearTimeout(timer);
     }, 1000);
   };
