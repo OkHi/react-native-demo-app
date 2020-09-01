@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {LoaderScreen} from './screens/Loader';
 import {CreateAddressScreen} from './screens/CreateAddress';
+import {HomeScreen} from './screens/Home';
 import {RootStackParamList} from './routes';
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -19,6 +20,11 @@ export const App = () => {
         <Stack.Screen
           name="CreateAddressScreen"
           component={CreateAddressScreen}
+          options={{header: () => null}}
+        />
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
           options={{header: () => null}}
         />
       </Stack.Navigator>
