@@ -1,13 +1,20 @@
 import React, {useState} from 'react';
+import {StackNavigationProp} from '@react-navigation/stack';
 import styled from 'styled-components/native';
 import {Button} from 'react-native';
 import {Container} from '../components/Common';
+import {RootStackParamList} from '../routes';
+import {resetNavigation} from '../util';
 
 type FormErrorType = 'firstName' | 'lastName' | 'phone';
 
 type FormErrorTypes = Array<FormErrorType>;
 
-export const CreateAddressScreen = () => {
+type Props = {
+  navigation: StackNavigationProp<RootStackParamList, 'CreateAddressScreen'>;
+};
+
+export const CreateAddressScreen = (props: Props) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
@@ -17,7 +24,13 @@ export const CreateAddressScreen = () => {
     return error?.includes(type) || false;
   };
 
-  const handleOnFormSubmit = () => {};
+  const handleOnFormSubmit = () => {
+    resetNavigation('HomeScreen', props.navigation, {
+      firstName,
+      lastName,
+      phone,
+    });
+  };
 
   const handleOnPress = () => {
     setError([]);
