@@ -125,6 +125,7 @@ const Title = styled.Text`
   font-weight: bold;
   margin-bottom: 15px;
   opacity: 0.9;
+  text-align: center;
 `;
 
 const Hint = styled.Text<{noError?: boolean}>`
