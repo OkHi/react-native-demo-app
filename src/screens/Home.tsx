@@ -2,6 +2,7 @@ import React from 'react';
 import {Text} from 'react-native';
 import styled from 'styled-components/native';
 import {Container, FullButton} from '../components/Common';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export const HomeScreen = () => {
   const handleOnAddressCreate = () => {};
@@ -22,7 +23,7 @@ export const HomeScreen = () => {
             </AddressTitleSubtitle>
           </AddressSection>
           <AddressSection>
-            <Text>Hi</Text>
+            <Icon name="more-vert" size={22} />
           </AddressSection>
         </AddressContainer>
       </Container>
@@ -31,7 +32,7 @@ export const HomeScreen = () => {
   );
 };
 
-const AddressAvatar = styled.Text`
+const AddressAvatar = styled.View`
   width: 60px;
   height: 60px;
   border-radius: 30px;
