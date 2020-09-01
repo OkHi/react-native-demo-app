@@ -26,6 +26,8 @@ export const LoaderScreen = (props: Props) => {
         .then((user) => {
           if (!user) {
             resetNavigation('CreateAddressScreen', props.navigation);
+          } else {
+            resetNavigation('HomeScreen', props.navigation, user);
           }
         })
         .catch(() => resetNavigation('CreateAddressScreen', props.navigation));
