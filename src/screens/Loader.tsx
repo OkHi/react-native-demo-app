@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {CommonActions} from '@react-navigation/native';
 import styled from 'styled-components/native';
 import {Container as Parent} from '../components/Common';
 import Repo from '../services/Repo';
 import {RootStackParamList} from '../routes';
+import {resetNavigation} from '../util';
 
 const values = [
   'Be open',
@@ -20,23 +20,15 @@ type Props = {
 };
 
 export const LoaderScreen = (props: Props) => {
-  const navigate = (route: string) => {
-    const reset = CommonActions.reset({
-      index: 0,
-      routes: [{name: route}],
-    });
-    props.navigation.dispatch(reset);
-  };
-
   const init = () => {
     const timer = setTimeout(() => {
       Repo.getUser()
         .then((user) => {
           if (!user) {
-            navigate('CreateAddressScreen');
+            resetNavigation('CreateAddressScreen', props.navigation);
           }
         })
-        .catch(() => navigate('CreateAddressScreen'));
+        .catch(() => resetNavigation('CreateAddressScreen', props.navigation));
       clearTimeout(timer);
     }, 1000);
   };
