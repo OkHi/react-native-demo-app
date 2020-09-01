@@ -5,6 +5,7 @@ import {Button} from 'react-native';
 import {Container} from '../components/Common';
 import {RootStackParamList} from '../routes';
 import {resetNavigation} from '../util';
+import Repo from '../services/Repo';
 
 type FormErrorType = 'firstName' | 'lastName' | 'phone';
 
@@ -25,6 +26,7 @@ export const CreateAddressScreen = (props: Props) => {
   };
 
   const handleOnFormSubmit = () => {
+    Repo.saveUser({firstName, lastName, phone});
     resetNavigation('HomeScreen', props.navigation, {
       firstName,
       lastName,
